@@ -1,1 +1,29 @@
-<h1>Hello Android!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Clock Activity</title>
+<link rel="stylesheet" href="lib/sugar-html-graphics/css/sugar.css">
+<link rel="stylesheet" href="css/activity.css">
+<script data-main="js/loader" src="lib/require.js"></script>
+</head>
+<body>
+  <div id="toolbar">
+    <button id="activity-button" title="Clock Activity"></button>
+    <button id="simple-clock-button" title="Simple Clock"></button>
+    <button id="nice-clock-button" title="Nice Clock"></button>
+
+    <!-- Buttons with class="pull-right" will be right aligned -->
+
+    <button id="stop-button" class="pull-right" title="Stop"></button>
+  </div>
+  <div id="canvas">
+    <div id="clock-container">
+      <canvas id="clock-canvas"></canvas>
+    </div>
+    <div id="text-container">
+      <p id="text-time">What Time Is It?</p>
+    </div>
+  </div>
+</body>
+</html>
