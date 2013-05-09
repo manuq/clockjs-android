@@ -30,7 +30,7 @@ public class ClockActivity extends Activity {
         myWebview.setWebViewClient(new WebViewClient());
 
         //And let the fun begin
-        myWebview.loadUrl("http://manuq.github.io/clockjs/");
+        myWebview.loadUrl("file:///android_asset/index.html");
     }    
 
 }
