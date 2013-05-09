@@ -7,12 +7,12 @@ define(function (require) {
 
     activity.setup();
 
-    // // Colorize the activity icon.
+    // Colorize the activity icon.
 
-    // var activityButton = document.getElementById("activity-button");
-    // activity.getXOColor(function (colors) {
-    //     icons.colorize(activityButton, colors);
-    // });
+    var activityButton = document.getElementById("activity-button");
+    activity.getXOColor(function (colors) {
+        icons.colorize(activityButton, colors);
+    });
 
     var simpleClockButton = document.getElementById("simple-clock-button");
     var niceClockButton = document.getElementById("nice-clock-button");

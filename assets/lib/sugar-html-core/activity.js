@@ -10,6 +10,11 @@ define(function(require) {
     };
 
     activity.getXOColor = function(callback) {
+        if (AndroidActivity) {
+            var colorString = AndroidActivity.getXOColor();
+            callback(colorString.split(','));
+            return;
+        }
         try {
             bus.sendMessage("activity.get_xo_color", [], callback);
         }

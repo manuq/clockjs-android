@@ -17,4 +17,10 @@ public class WebAppInterface {
     	// Maybe is better to stop it, not finish it
     	((Activity) mContext).finish();
     }
+
+    @JavascriptInterface
+    public String getXOColor() {
+        // I don't know how to use arrays in java yet :)
+        return "#FFFF00,#00FFFF";
+    }
 }
