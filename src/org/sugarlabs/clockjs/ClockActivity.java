@@ -22,27 +22,28 @@ public class ClockActivity extends Activity {
         setContentView(R.layout.activity_clock);
 
         // Configure the webview setup in the xml layout
-        WebView myWebview = (WebView) findViewById(R.id.webview);
+        WebView myWebView = (WebView) findViewById(R.id.webview);
 
         // Allow javascript
-        WebSettings webSettings = myWebview.getSettings();
+        WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         // Make sure links in the webview is handled by the webview
         // and not sent to a full browser
-        myWebview.setWebViewClient(new WebViewClient());
+        myWebView.setWebViewClient(new WebViewClient());
 
-        myWebview.setWebChromeClient(new WebChromeClient() {
+        // Send javascript console messages to Eclipse LogCat
+        myWebView.setWebChromeClient(new WebChromeClient() {
           public boolean onConsoleMessage(ConsoleMessage cm) {
-            Log.d("MyApplication", cm.message() + " -- From line "
-                                 + cm.lineNumber() + " of "
-                                 + cm.sourceId() );
+            Log.d("Sugar Activity", cm.message() + " -- From line "
+                  + cm.lineNumber() + " of "
+                  + cm.sourceId() );
             return true;
           }
         });
 
-        //And let the fun begin
-        myWebview.loadUrl("file:///android_asset/index.html");
-    }    
+        // Finally, load the Sugar activity
+        myWebView.loadUrl("file:///android_asset/index.html");
+    }
 
 }
