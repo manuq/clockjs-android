@@ -9,6 +9,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
 import android.webkit.ConsoleMessage;
+import org.sugarlabs.clockjs.WebAppInterface;
 
 public class ClockActivity extends Activity {
 
@@ -23,6 +24,7 @@ public class ClockActivity extends Activity {
 
         // Configure the webview setup in the xml layout
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "AndroidActivity");
 
         // Allow javascript
         WebSettings webSettings = myWebView.getSettings();

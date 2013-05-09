@@ -21,6 +21,10 @@ define(function(require) {
     };
 
     activity.close = function(callback) {
+        if (AndroidActivity) {
+            AndroidActivity.stop();
+            return;
+        }
         try {
             bus.sendMessage("activity.close", [], callback);
         }
