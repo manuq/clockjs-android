@@ -40,6 +40,7 @@ define(function (require) {
         clockStyle = "simple";
         addClass(simpleClockButton, "active");
         removeClass(niceClockButton, "active");
+        console.log("Simple face");
     }
 
     activateSimple();
@@ -48,6 +49,7 @@ define(function (require) {
         clockStyle = "nice";
         addClass(niceClockButton, "active");
         removeClass(simpleClockButton, "active");
+        console.log("Nice face");
     }
 
     simpleClockButton.onclick = function () {
@@ -149,6 +151,10 @@ define(function (require) {
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var seconds = date.getSeconds();
+
+       if (seconds % 5 === 0) {
+           console.log("Tick! " + hours + ':' + minutes + ':' + seconds);
+       }
 
         var zeroFill = function (number) {
             return ('00' + number).substr(-2);
