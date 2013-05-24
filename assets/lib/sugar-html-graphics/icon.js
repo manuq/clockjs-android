@@ -1,7 +1,8 @@
 define(function () {
-    icons = {};
+    var icon = {};
 
-    icons.load = function (iconInfo, callback) {
+    icon.load = function (iconInfo, callback) {
+        var source;
         if ("uri" in iconInfo) {
             source = iconInfo.uri;
         }
@@ -9,10 +10,10 @@ define(function () {
             source = "lib/sugar-html-graphics/icons/" + iconInfo.name + ".svg";
         }
 
-        fillColor = iconInfo.fillColor;
-        strokeColor = iconInfo.strokeColor;
+        var fillColor = iconInfo.fillColor;
+        var strokeColor = iconInfo.strokeColor;
 
-        client = new XMLHttpRequest();
+        var client = new XMLHttpRequest();
 
         client.onload = function () {
             var iconData = this.responseText;
@@ -45,18 +46,18 @@ define(function () {
         elem.style.backgroundImage = "url('" + url + "')";
     }
 
-    icons.colorize = function(elem, colors) {
+    icon.colorize = function (elem, colors) {
         var iconInfo = {
             "uri": getBackgroundURL(elem),
             "strokeColor": colors[0],
             "fillColor": colors[1]
         };
 
-        icons.load(iconInfo, function (url) {
+        icon.load(iconInfo, function (url) {
             setBackgroundURL(elem, url);
         });
 
     };
 
-    return icons;
+    return icon;
 });
